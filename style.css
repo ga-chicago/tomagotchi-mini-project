@@ -2,3 +2,19 @@ body {
 	background-color: #9FE9FF;
 }
 
+#setName #feed #light #play{
+	display: inline block;
+	width: 100px
+	border: 2px solid yellow;
+}
+
+}
+input {
+	width: 300px;
+	height: 10px;
+	display: block;
+}
+
+#setName {
+	display: block;
+}

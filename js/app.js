@@ -14,6 +14,7 @@ $('#food').on('click', (event) => {
 $('#light').on('click', (event) => {
 	console.log('boo')
 	const lights = $('input').val();
+	shadow.sleep(lights);
 
 })
 
@@ -41,7 +42,16 @@ class Tomagachi {
 			
 	}
 	sleep(){
-		// if(this)
+		if(this.sleepiness > 0){
+		this.sleepiness--
+		}
+		if(this.boredom >= 10){
+		 	this.boredom--
+		 }
+
+		 printInfo();
+		 
+		 	
 	}
 	feedMe(){
 		// reduce hunger
@@ -57,6 +67,14 @@ class Tomagachi {
 
 	}
 	play(action){
+		if(this.hunger < 10) {
+			this.hunger++
+		}
+		 if(this.sleepiness < 10){
+		 	this.sleepiness++
+		 }
+		 printInfo();
+
 		console.log('play with me')
 	}
 	
@@ -103,7 +121,7 @@ const setTimer = () => {
     
     //   shadow.age++;
     
-    if(time === 60){
+    if(time === 10){
     	shadow.age++
     	printInfo();
     }

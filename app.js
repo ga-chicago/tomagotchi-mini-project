@@ -1,6 +1,13 @@
 console.log("its working");
 // const button = $('button')
+$('#setName').on('click', (event) => {
+	pet.setName($('input').val());
+	window.alert('Welcome ' + pet.petName);
 
+// agePet()
+lifePet()
+updateList()
+})
 
 class Tamagotchi {
 	constructor(petName){
@@ -40,7 +47,7 @@ const pet = new Tamagotchi('irwin');
 // 	console.log(action);
 // })
 
-$('#feed').on('click', () => {
+$('#food').on('click', () => {
 	pet.feed()
 	console.log(pet.hunger);
 })
@@ -55,32 +62,41 @@ $('#play').on('click', () => {
 	console.log(pet.boredom);
 })
 
-$('#setName').on('click', (event) => {
-	pet.setName($('input').val());
-	window.alert(pet.petName);
-})
+// $('#setName').on('click', (event) => {
+// 	pet.setName($('input').val());
+// 	window.alert('Welcome ' + pet.petName);
+// })
 
+// agePet()
 
-function agePet() {
+function lifePet () { 
 	setInterval(function(){ 
+		// $('#hunger').text('Hunger: ' + pet.hunger);
+		// $('#sleepiness').text('Sleepines: ' + pet.sleepiness);
+		// $('#boredom').text('Boredom: ' + pet.boredom)
 		if (pet.isAlive) {
+			pet.hunger++
+			pet.sleepiness++
+			pet.boredom++
 			pet.age++
-		}
-	}, 60000);
-}
-agePet()
-
-setInterval(function(){ 
-	if (pet.isAlive) {
-		pet.hunger++
-		pet.sleepiness++
-		pet.boredom++
 
 		if (pet.hunger >= 10 || pet.boredom >= 10 || pet.sleepiness >= 10) {
 			pet.killPet()	
-		}	
-	}
-}, 2000);
+		}
+		updateList()	
+		}
+	}, 5000);
+}
+
+// lifePet()
+
+
+function updateList() {
+		$('#hunger').text('Hunger: ' + pet.hunger);
+		$('#sleepiness').text('Sleepines: ' + pet.sleepiness);
+		$('#boredom').text('Boredom: ' + pet.boredom);
+		$('#age').text('Age: ' + pet.age);
+}
 
 
 

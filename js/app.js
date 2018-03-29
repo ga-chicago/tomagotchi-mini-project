@@ -28,17 +28,19 @@ $('#play').on('click', (event) => {
 $('#name').on('click', (event) => {
 	console.log('hola')
 	const changeName = $('input').val();
+	// since you need the name 
+	// this is the place I want to you to instatiate your class
 	shadow.name = changeName;
 
 })
 
 class Tomagachi {
-	constructor(hunger, sleepiness, boredom, age){
+	constructor(hunger, sleepiness, boredom, age, name){
 		this.hunger = hunger;	
 		this.sleepiness = sleepiness;
 		this.boredom = boredom;
 		this.age = age;
-		
+		this.name = name;
 			
 	}
 	sleep(){
@@ -67,7 +69,7 @@ class Tomagachi {
 			//do die code
 			this.die();
 		}
-
+		console.log("I am very hungry")
 		printInfo();
 
 	}
@@ -94,7 +96,7 @@ class Tomagachi {
 
 }
 //console.log(Tomagachi)
-const shadow = new Tomagachi(5, 3, 1, 7)
+const shadow = new Tomagachi(5, 3, 1, 7, 'this is where the input value of the name would go')
 console.log(shadow);
 
 
@@ -133,13 +135,14 @@ const setTimer = () => {
     
     //   shadow.age++;
     
-    if(time === 10){
+    if(time === 10 || 20){
     	shadow.age++
     	printInfo();
     }
-
-    // $('#timer').text('timer: ' + time + 's');
-
+    if(time === 30){
+    	clearInterval(timer)
+    }
+    
   }, 1000);
 
 };
@@ -148,13 +151,15 @@ const setTimer = () => {
 printInfo();
 setTimer();
 
-// for(let i = 0; i < 100; i++) {
-// 	// if the remainder when you divide i by 2 is 0
-// 	if(i % 2 == 0) { // (even)
-// 		console.log(i)
-// 	}
-// }
+// use a jquery selector to grab image then use the animate $('#squirall').animate
+moveright = () =>{
+	// .animate, you can change marging an animate
+	$('#image').css("margin-left", "60px")
+}
 
+moveback = () =>{
+	$('#image').css("margin-right", "20px")
+}
 
 
 

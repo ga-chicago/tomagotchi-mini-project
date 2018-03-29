@@ -11,6 +11,7 @@ $('#food').on('click', (event) => {
 })
 
 
+
 $('#light').on('click', (event) => {
 	console.log('boo')
 	const lights = $('input').val();
@@ -161,16 +162,28 @@ printInfo();
 setTimer();
 
 // use a jquery selector to grab image then use the animate $('#squirall').animate
-moveright = () =>{
+const moveright = () =>{
 	// .animate, you can change marging an animate
-	$('#image').animate("margin-left", "60px")
+	$('#image').animate({
+		"margin-left": "260px"})
 }
 
-moveback = () =>{
-	$('#image').css("margin-right", "20px")
+$('#image').on('click', (event) => {
+	console.log('hey')
+	const moving = $('input').val();
+	moveright();
+
+})
+
+const moveback = () =>{
+	$('#image').animate({"margin-right": "150px"})
 }
 
-
+$('#image').on('click', (event) => {
+	console.log('hey')
+	const moving = $('input').val();
+	moveback();
+})
 
 
 

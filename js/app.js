@@ -63,6 +63,11 @@ class Tomagachi {
 			this.sleepiness++	
 		}
 		
+		if (this.sleepiness > 10) {
+			//do die code
+			this.die();
+		}
+
 		printInfo();
 
 	}
@@ -77,6 +82,13 @@ class Tomagachi {
 
 		console.log('play with me')
 	}
+	die(){
+		
+		if(this.hunger < 10)
+			this.hunger--
+
+	}
+
 	
 	
 

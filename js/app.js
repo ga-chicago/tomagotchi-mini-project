@@ -29,6 +29,7 @@ $('#name').on('click', (event) => {
 	console.log('hola')
 	const changeName = $('input').val();
 	// since you need the name 
+	$('#display').text(changeName)
 	// this is the place I want to you to instatiate your class
 	shadow.name = changeName;
 
@@ -57,23 +58,26 @@ class Tomagachi {
 	}
 	feedMe(){
 		// reduce hunger
-		if(this.hunger > 0) {
+		if(this.hunger < 10) {
 			this.hunger--
 		}
 		// increase sleepiness
 		if(this.sleepiness < 10){
 			this.sleepiness++	
 		}
-		
-		if (this.sleepiness > 10) {
-			//do die code
-			this.die();
-		}
+		if(this.boredom < 10){
+		 	this.boredom++
+		 }
+		// if (this.sleepiness > 10) {
+		// 	//do die code
+		// 	this.die();
+		// }
 		console.log("I am very hungry")
 		printInfo();
 
 	}
 	play(action){
+		
 		if(this.hunger < 10) {
 			this.hunger++
 		}
@@ -84,6 +88,11 @@ class Tomagachi {
 
 		console.log('play with me')
 	}
+	// newAge(){
+	// 	if(this.age === 15)
+	// 		this.die();
+	// 	console.log('Good Bye')
+	// }
 	die(){
 		
 		if(this.hunger < 10)
@@ -135,11 +144,11 @@ const setTimer = () => {
     
     //   shadow.age++;
     
-    if(time === 10 || 20){
+    if(time === 10 || 12){
     	shadow.age++
     	printInfo();
     }
-    if(time === 30){
+    if(time === 20){
     	clearInterval(timer)
     }
     
@@ -154,7 +163,7 @@ setTimer();
 // use a jquery selector to grab image then use the animate $('#squirall').animate
 moveright = () =>{
 	// .animate, you can change marging an animate
-	$('#image').css("margin-left", "60px")
+	$('#image').animate("margin-left", "60px")
 }
 
 moveback = () =>{

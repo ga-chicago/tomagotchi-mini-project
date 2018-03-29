@@ -168,22 +168,25 @@ const moveright = () =>{
 		"margin-left": "260px"})
 }
 
-$('#image').on('click', (event) => {
+$('#image').on('click', (e) => {
 	console.log('hey')
 	const moving = $('input').val();
 	moveright();
+	$(e.currentTarget).off('click')
+	$('#image').on('click', (event) => {
+	console.log('hey')
+// 	const moving = $('input').val();
+	moveback();
+})
+
 
 })
 
 const moveback = () =>{
-	$('#image').animate({"margin-right": "150px"})
+	$('#image').animate({"margin-left": "0px"})
+	// $(e.currentTarget).off('click').on('click', (e) =>
 }
 
-$('#image').on('click', (event) => {
-	console.log('hey')
-	const moving = $('input').val();
-	moveback();
-})
 
 
 

@@ -1,0 +1,27 @@
+body {
+	background-color: #9FE9FF;
+}
+
+button {
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+#setName {
+	display: inline-block;
+}
+
+img {
+	float: center;
+	margin-left: 150px;
+	/*margin-top: 100px;*/
+}
+
+div {
+	border: .5px solid gray;
+	background-color: lightgray;
+	width: 100px;
+	height: 30px;
+	display: block;
+}
